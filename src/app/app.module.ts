@@ -1,13 +1,15 @@
+import 'hammerjs';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { APP_BASE_HREF } from '@angular/common';
-import 'hammerjs';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AppMaterialModule } from './app-md.module';
 import { AppRoutingModule } from './app-routing.module';
+import { HomeModule } from './home/home.module';
 import { AppComponent } from './app.component';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -20,6 +22,7 @@ import { AppComponent } from './app.component';
     AppMaterialModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    HomeModule,
   ],
   providers: [{
     provide: APP_BASE_HREF,

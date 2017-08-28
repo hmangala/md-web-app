@@ -175,6 +175,10 @@
     magic-string "^0.22.3"
     source-map "^0.5.6"
 
+"@types/hammerjs@^2.0.35":
+  version "2.0.35"
+  resolved "https://registry.yarnpkg.com/@types/hammerjs/-/hammerjs-2.0.35.tgz#7b7c950c7d54593e23bffc8d2b4feba9866a7277"
+
 "@types/jasmine@*", "@types/jasmine@~2.5.53":
   version "2.5.54"
   resolved "https://registry.yarnpkg.com/@types/jasmine/-/jasmine-2.5.54.tgz#a6b5f2ae2afb6e0307774e8c7c608e037d491c63"
@@ -4834,6 +4838,10 @@ spdy@^3.4.1:
     safe-buffer "^5.0.1"
     select-hose "^2.0.0"
     spdy-transport "^2.0.18"
+
+splash-screen@^4.0.1:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/splash-screen/-/splash-screen-4.0.1.tgz#1fd1676dc4af06d76168a102ffa04353498613ee"
 
 sprintf-js@^1.0.3:
   version "1.1.1"
