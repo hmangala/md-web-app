@@ -1,42 +1,116 @@
-<div flex="" layout="row" layout-align="center center" layout-fill="" class="layout-fill layout-align-center-center layout-row flex">
-    <md-card flex="90" class="tri-wizard-card md-whiteframe-z1 margin-bottom-100 _md md-cyan-theme flex-90" tri-wizard="">
-        <md-toolbar class="md-primary _md md-cyan-theme _md-toolbar-transitions">
-            <div class="md-toolbar-tools layout-align-space-between-center layout-row" layout="row" layout-align="space-between center">
-                <h2>User Registration</h2><h2 class="ng-binding"> 7% <span translate="" class="ng-scope">Complete</span></h2>
+<md-card>
+    <md-toolbar color="primary">
+        <div>
+            <h2>User Registration</h2>
+            <h2> 7% <span translate="" class="ng-scope">Complete</span></h2>
+        </div>
+        <md-progress-bar md-mode="determinate" ng-value="triWizard.progress" aria-valuemin="0" aria-valuemax="100" role="progressbar" aria-checked="true" value="7" aria-valuenow="7">
+            <div class="md-container md-mode-determinate">
+                <div class="md-dashed"></div>
+                <div class="md-bar md-bar1"></div>
+                <div class="md-bar md-bar2" style="transform: translateX(-46.5%) scale(0.07, 1);"></div>
             </div>
-            <md-progress-bar class="md-accent padding-bottom-10 md-cyan-theme" md-mode="determinate" 
-                ng-value="triWizard.progress" aria-valuemin="0" aria-valuemax="100" role="progressbar" 
-                aria-checked="true" value="7" aria-valuenow="7">
-                <div class="md-container md-mode-determinate">
-                    <div class="md-dashed"></div>
-                    <div class="md-bar md-bar1"></div>
-                    <div class="md-bar md-bar2" style="transform: translateX(-46.5%) scale(0.07, 1);"></div>
+        </md-progress-bar>
+    </md-toolbar>
+    <md-card-content>
+        <md-tab-group>
+            <md-tab>
+                <ng-template md-tab-label>
+                    <md-icon>account_circle</md-icon>&nbsp;&nbsp;Account
+                </ng-template>
+                <h2>Account Details</h2>
+                <div>
+                    <md-input-container>
+                        <input name="username" required="" mdInput placeholder="Username" value="">
+                    </md-input-container>
                 </div>
-            </md-progress-bar>
-        </md-toolbar>
-        <md-card-content>
-            <md-tab-group class="md-primary layout-fill ng-isolate-scope md-dynamic-height md-cyan-theme" 
-                layout-fill="" md-selected="triWizard.currentStep" md-dynamic-height="">
-                <md-tab>
-                    <ng-template md-tab-label>
-                        <span class="oxy-step-label ng-scope">1</span>
-                        <span translate="" class="ng-scope">Account details</span>
-                    </ng-template>
-                    <h1>Best pasta restaurants</h1>
-                    <p>...</p>
-                </md-tab>
-                <md-tab>
-                    <ng-template md-tab-label>
-                    <md-icon>thumb_down</md-icon> The worst sushi
-                    </ng-template>
-                    <h1>Terrible sushi restaurants</h1>
-                    <p>...</p>
-                </md-tab>
-            </md-tab-group>
-        </md-card-content>
-        <md-card-actions>
-            <button md-button>Next</button>
-            <button md-button>Previous</button>
-        </md-card-actions>
-    </md-card>
-</div>
+                <div>
+                    <md-input-container>
+                        <input name="email" required="" mdInput placeholder="Email" value="">
+                    </md-input-container>
+                </div>
+                <div>
+                    <md-input-container>
+                        <input name="passw" required="" mdInput placeholder="Password" value="">
+                    </md-input-container>
+                    <md-input-container>
+                        <input name="confirmpassw" required="" mdInput placeholder="Confirm Password" value="">
+                    </md-input-container>
+                </div>
+            </md-tab>
+            <md-tab>
+                <ng-template md-tab-label>
+                    <md-icon>local_post_office</md-icon>&nbsp;&nbsp;Your Address
+                </ng-template>
+                <h2>Address Details</h2>
+                <div>
+                    <md-input-container>
+                        <input name="firstname" required="" mdInput placeholder="First Name" value="">
+                    </md-input-container>
+                </div>
+                <div>
+                    <md-input-container>
+                        <input name="lastname" required="" mdInput placeholder="Last Name" value="">
+                    </md-input-container>
+                </div>
+                <div>
+                    <md-input-container>
+                        <input name="address1" required="" mdInput placeholder="Address Line 1" value="">
+                    </md-input-container>
+                </div>
+                <div>
+                    <md-input-container>
+                        <input name="address2" required="" mdInput placeholder="Address Line 1" value="">
+                    </md-input-container>
+                </div>
+                <div>
+                    <md-input-container>
+                        <input name="city" required="" mdInput placeholder="City" value="">
+                    </md-input-container>
+                    <md-input-container>
+                        <input name="state" required="" mdInput placeholder="State" value="">
+                    </md-input-container>
+                </div>
+                <div>
+                    <md-input-container>
+                        <input name="pin" required="" mdInput placeholder="Pincode" value="">
+                    </md-input-container>
+                    <md-input-container>
+                        <input name="country" required="" mdInput placeholder="Country" value="">
+                    </md-input-container>
+                </div>
+            </md-tab>
+            <md-tab>
+                <ng-template md-tab-label>
+                    <md-icon>contacts</md-icon>&nbsp;&nbsp;Your Contact
+                </ng-template>
+                <h2>Contact Details</h2>
+                <div>
+                    <md-input-container>
+                        <input name="mobile" required="" mdInput placeholder="Mobile Number" value="">
+                    </md-input-container>
+                </div>
+                <div>
+                    <md-input-container>
+                        <input name="phone" mdInput placeholder="Phone (Optional)" value="">
+                    </md-input-container>
+                </div>
+                <div>
+                    <md-input-container>
+                        <input name="secondaryemail" mdInput placeholder="Secondary Email (Optional)" value="">
+                    </md-input-container>
+                </div>
+            </md-tab>
+            <md-tab>
+                <ng-template md-tab-label>
+                    <md-icon>done_all</md-icon>&nbsp;&nbsp;Confirmation
+                </ng-template>
+                <p>You have successfully Completed the registration kindly login</p>
+            </md-tab>
+        </md-tab-group>
+    </md-card-content>
+    <md-card-actions>
+        <button md-button>Next</button>
+        <button md-button>Previous</button>
+    </md-card-actions>
+</md-card>
