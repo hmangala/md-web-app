@@ -19,93 +19,129 @@
                     <md-icon>account_circle</md-icon>&nbsp;&nbsp;Account
                 </ng-template>
                 <h2>Account Details</h2>
-                <div>
-                    <md-input-container>
-                        <input name="username" required="" mdInput placeholder="Username" value="">
-                    </md-input-container>
-                </div>
-                <div>
-                    <md-input-container>
-                        <input name="email" required="" mdInput placeholder="Email" value="">
-                    </md-input-container>
-                </div>
-                <div>
-                    <md-input-container>
-                        <input name="passw" required="" mdInput placeholder="Password" value="">
-                    </md-input-container>
-                    <md-input-container>
-                        <input name="confirmpassw" required="" mdInput placeholder="Confirm Password" value="">
-                    </md-input-container>
-                </div>
+                <form class="container-fluid" (ngSubmit)="processAccount()" [formGroup]="accountForm">
+                    <div class="row">
+                        <div class="col-4">
+                            <md-input-container>
+                                <input name="username" formControlName="username" required mdInput placeholder="Username" value="">
+                            </md-input-container>
+                            <div>
+                                <span class="help-block" *ngIf="formErrors.username">
+                                    {{ formErrors.username }}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4">
+                            <md-input-container>
+                                <input name="email" formControlName="email" required mdInput placeholder="Email" value="">
+                            </md-input-container>
+                            <div>
+                                <span class="help-block" *ngIf="formErrors.email">
+                                    {{ formErrors.email }}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">    
+                        <div class="col-4">
+                            <md-input-container>
+                                <input type="password" name="passw" formControlName="passw" required mdInput placeholder="Password" value="">
+                            </md-input-container>
+                            <div *ngIf="formErrors.passw">
+                                <span class="help-block">
+                                    {{ formErrors.passw }}
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-4">    
+                            <md-input-container>
+                                <input type="password" name="confirmpassw" formControlName="confirmpassw" required mdInput placeholder="Confirm Password" value="">
+                            </md-input-container>
+                            <div *ngIf="formErrors.confirmpassw">
+                                <span class="help-block">
+                                    {{ formErrors.confirmpassw }}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </form>    
             </md-tab>
             <md-tab>
                 <ng-template md-tab-label>
                     <md-icon>local_post_office</md-icon>&nbsp;&nbsp;Your Address
                 </ng-template>
                 <h2>Address Details</h2>
-                <div>
-                    <md-input-container>
-                        <input name="firstname" required="" mdInput placeholder="First Name" value="">
-                    </md-input-container>
-                </div>
-                <div>
-                    <md-input-container>
-                        <input name="lastname" required="" mdInput placeholder="Last Name" value="">
-                    </md-input-container>
-                </div>
-                <div>
-                    <md-input-container>
-                        <input name="address1" required="" mdInput placeholder="Address Line 1" value="">
-                    </md-input-container>
-                </div>
-                <div>
-                    <md-input-container>
-                        <input name="address2" required="" mdInput placeholder="Address Line 1" value="">
-                    </md-input-container>
-                </div>
-                <div>
-                    <md-input-container>
-                        <input name="city" required="" mdInput placeholder="City" value="">
-                    </md-input-container>
-                    <md-input-container>
-                        <input name="state" required="" mdInput placeholder="State" value="">
-                    </md-input-container>
-                </div>
-                <div>
-                    <md-input-container>
-                        <input name="pin" required="" mdInput placeholder="Pincode" value="">
-                    </md-input-container>
-                    <md-input-container>
-                        <input name="country" required="" mdInput placeholder="Country" value="">
-                    </md-input-container>
-                </div>
+                <form (ngSubmit)="processAdress()" [formGroup]="addressForm">
+                    <div>
+                        <md-input-container>
+                            <input name="firstname" required="" mdInput placeholder="First Name" value="">
+                        </md-input-container>
+                    </div>
+                    <div>
+                        <md-input-container>
+                            <input name="lastname" required="" mdInput placeholder="Last Name" value="">
+                        </md-input-container>
+                    </div>
+                    <div>
+                        <md-input-container>
+                            <input name="address1" required="" mdInput placeholder="Address Line 1" value="">
+                        </md-input-container>
+                    </div>
+                    <div>
+                        <md-input-container>
+                            <input name="address2" required="" mdInput placeholder="Address Line 1" value="">
+                        </md-input-container>
+                    </div>
+                    <div>
+                        <md-input-container>
+                            <input name="city" required="" mdInput placeholder="City" value="">
+                        </md-input-container>
+                        <md-input-container>
+                            <input name="state" required="" mdInput placeholder="State" value="">
+                        </md-input-container>
+                    </div>
+                    <div>
+                        <md-input-container>
+                            <input name="pin" required="" mdInput placeholder="Pincode" value="">
+                        </md-input-container>
+                        <md-input-container>
+                            <input name="country" required="" mdInput placeholder="Country" value="">
+                        </md-input-container>
+                    </div>
+                </form>    
             </md-tab>
             <md-tab>
                 <ng-template md-tab-label>
                     <md-icon>contacts</md-icon>&nbsp;&nbsp;Your Contact
                 </ng-template>
                 <h2>Contact Details</h2>
-                <div>
-                    <md-input-container>
-                        <input name="mobile" required="" mdInput placeholder="Mobile Number" value="">
-                    </md-input-container>
-                </div>
-                <div>
-                    <md-input-container>
-                        <input name="phone" mdInput placeholder="Phone (Optional)" value="">
-                    </md-input-container>
-                </div>
-                <div>
-                    <md-input-container>
-                        <input name="secondaryemail" mdInput placeholder="Secondary Email (Optional)" value="">
-                    </md-input-container>
-                </div>
+                <form (ngSubmit)="processContact()" [formGroup]="contactForm">
+                    <div>
+                        <md-input-container>
+                            <input name="mobile" required="" mdInput placeholder="Mobile Number" value="">
+                        </md-input-container>
+                    </div>
+                    <div>
+                        <md-input-container>
+                            <input name="phone" mdInput placeholder="Phone (Optional)" value="">
+                        </md-input-container>
+                    </div>
+                    <div>
+                        <md-input-container>
+                            <input name="secondaryemail" mdInput placeholder="Secondary Email (Optional)" value="">
+                        </md-input-container>
+                    </div>
+                </form>    
             </md-tab>
             <md-tab>
                 <ng-template md-tab-label>
                     <md-icon>done_all</md-icon>&nbsp;&nbsp;Confirmation
                 </ng-template>
-                <p>You have successfully Completed the registration kindly login</p>
+                <div>
+                    <p>You have successfully Completed the registration kindly login</p>
+                </div>
             </md-tab>
         </md-tab-group>
     </md-card-content>
