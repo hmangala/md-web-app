@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormArray, Validators } from '@angular/forms';
 
+
 /**
  * This class represents the lazy loaded HomeComponent.
  */
@@ -11,12 +12,13 @@ import { FormGroup, FormBuilder, FormArray, Validators } from '@angular/forms';
 })
 export class HomeComponent implements OnInit {
   accountForm: FormGroup;
+  accountFormCompleted: boolean;
   addressForm: FormGroup;
   contactForm: FormGroup;
   formErrors = {
     username: '',
-    passw: '',
     email: '',
+    passw: '',
     confirmpassw: ''
   };
   validationMessages = {
@@ -24,14 +26,14 @@ export class HomeComponent implements OnInit {
       required: 'Username is required.',
       minlength: 'Username must be 3 characters.'
     },
+    email: {
+      required: 'Email is required.',
+      email: 'Email is invalid.'
+    },
     passw: {
       required: 'Password is required.',
       minlength: 'Password must be 3 characters.',
       maxlength: 'Password can\'t be longer than 6 characters.'
-    },
-    email: {
-      required: 'Email is required.',
-      minlength: 'Email must be 3 characters.'
     },
     confirmpassw: {
       required: 'Password is required.',
@@ -44,6 +46,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
      // build the data model for our form
+     this.accountFormCompleted = false;
      this.buildForm();
   }
 
@@ -53,9 +56,9 @@ export class HomeComponent implements OnInit {
   buildForm() {
     // build our form
     this.accountForm = this.fb.group({
-      passw: ['', [Validators.minLength(3), Validators.maxLength(6)]],
       username: ['', Validators.minLength(3)],
-      email: ['', Validators.minLength(3)],
+      email: ['', Validators.email],
+      passw: ['', [Validators.minLength(3), Validators.maxLength(6)]],
       confirmpassw: ['', [Validators.minLength(3), Validators.maxLength(6)]]
     });
     this.addressForm = this.fb.group({});
@@ -68,6 +71,7 @@ export class HomeComponent implements OnInit {
    * validate the entire form
    */
   validateForm(form: FormGroup) {
+    let formValid = true;
     for (const field in this.formErrors) {
       if (field) {
         // clear that input field errors
@@ -80,12 +84,16 @@ export class HomeComponent implements OnInit {
           for (const error in input.errors) {
             if (error) {
               // assign that type of error message to a variable
+              if (formValid === true) {
+                formValid = false;
+              }
               this.formErrors[field] = this.validationMessages[field][error];
             }
           }
         }
       }
     }
+    console.log('Valid Form', form);
   }
 
   processAccount() {
@@ -100,5 +108,8 @@ export class HomeComponent implements OnInit {
     console.log('processing', this.contactForm.value);
   }
 
+  isNextEnabled() {
+    return this.accountFormCompleted;
+  }
 
 }

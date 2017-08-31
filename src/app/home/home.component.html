@@ -44,7 +44,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">    
+                    <div class="row">
                         <div class="col-4">
                             <md-input-container>
                                 <input type="password" name="passw" formControlName="passw" required mdInput placeholder="Password" value="">
@@ -55,7 +55,7 @@
                                 </span>
                             </div>
                         </div>
-                        <div class="col-4">    
+                        <div class="col-4">
                             <md-input-container>
                                 <input type="password" name="confirmpassw" formControlName="confirmpassw" required mdInput placeholder="Confirm Password" value="">
                             </md-input-container>
@@ -66,9 +66,9 @@
                             </div>
                         </div>
                     </div>
-                </form>    
+                </form>
             </md-tab>
-            <md-tab>
+            <md-tab [disabled]="!isNextEnabled()">
                 <ng-template md-tab-label>
                     <md-icon>local_post_office</md-icon>&nbsp;&nbsp;Your Address
                 </ng-template>
@@ -110,7 +110,7 @@
                             <input name="country" required="" mdInput placeholder="Country" value="">
                         </md-input-container>
                     </div>
-                </form>    
+                </form>
             </md-tab>
             <md-tab>
                 <ng-template md-tab-label>
@@ -133,7 +133,7 @@
                             <input name="secondaryemail" mdInput placeholder="Secondary Email (Optional)" value="">
                         </md-input-container>
                     </div>
-                </form>    
+                </form>
             </md-tab>
             <md-tab>
                 <ng-template md-tab-label>
@@ -146,7 +146,7 @@
         </md-tab-group>
     </md-card-content>
     <md-card-actions>
-        <button md-button>Next</button>
-        <button md-button>Previous</button>
+        <button md-button><md-icon>left</md-icon></button>
+        <button md-button [disabled]="!isNextEnabled()"><md-icon>keyboard_arrow_right</md-icon></button>
     </md-card-actions>
 </md-card>
