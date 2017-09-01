@@ -26,8 +26,8 @@
                                 <input name="username" formControlName="username" required mdInput placeholder="Username" value="">
                             </md-input-container>
                             <div>
-                                <span class="help-block" *ngIf="formErrors.username">
-                                    {{ formErrors.username }}
+                                <span class="help-block" *ngIf="accountFormErrors.username">
+                                    {{ accountFormErrors.username }}
                                 </span>
                             </div>
                         </div>
@@ -38,8 +38,8 @@
                                 <input name="email" formControlName="email" required mdInput placeholder="Email" value="">
                             </md-input-container>
                             <div>
-                                <span class="help-block" *ngIf="formErrors.email">
-                                    {{ formErrors.email }}
+                                <span class="help-block" *ngIf="accountFormErrors.email">
+                                    {{ accountFormErrors.email }}
                                 </span>
                             </div>
                         </div>
@@ -49,9 +49,9 @@
                             <md-input-container>
                                 <input type="password" name="passw" formControlName="passw" required mdInput placeholder="Password" value="">
                             </md-input-container>
-                            <div *ngIf="formErrors.passw">
+                            <div *ngIf="accountFormErrors.passw">
                                 <span class="help-block">
-                                    {{ formErrors.passw }}
+                                    {{ accountFormErrors.passw }}
                                 </span>
                             </div>
                         </div>
@@ -59,16 +59,16 @@
                             <md-input-container>
                                 <input type="password" name="confirmpassw" formControlName="confirmpassw" required mdInput placeholder="Confirm Password" value="">
                             </md-input-container>
-                            <div *ngIf="formErrors.confirmpassw">
+                            <div *ngIf="accountFormErrors.confirmpassw">
                                 <span class="help-block">
-                                    {{ formErrors.confirmpassw }}
+                                    {{ accountFormErrors.confirmpassw }}
                                 </span>
                             </div>
                         </div>
                     </div>
                 </form>
             </md-tab>
-            <md-tab [disabled]="!isAccountFormCompleted()">
+            <md-tab [disabled]="!accountFormCompleted">
                 <ng-template md-tab-label>
                     <md-icon>local_post_office</md-icon>&nbsp;&nbsp;Your Address
                 </ng-template>
@@ -79,9 +79,9 @@
                             <md-input-container>
                                 <input name="firstname" formControlName="firstname" required mdInput placeholder="First Name" value="">
                             </md-input-container>
-                            <div *ngIf="formErrors.firstname">
+                            <div *ngIf="addressFormErrors.firstname">
                                 <span class="help-block">
-                                    {{ formErrors.firstname }}
+                                    {{ addressFormErrors.firstname }}
                                 </span>
                             </div>
                         </div>
@@ -91,9 +91,9 @@
                             <md-input-container>
                                 <input name="lastname" formControlName="lastname" required mdInput placeholder="Last Name" value="">
                             </md-input-container>
-                            <div *ngIf="formErrors.lastname">
+                            <div *ngIf="addressFormErrors.lastname">
                                 <span class="help-block">
-                                    {{ formErrors.lastname }}
+                                    {{ addressFormErrors.lastname }}
                                 </span>
                             </div>
                         </div>
@@ -103,9 +103,9 @@
                             <md-input-container>
                                 <input name="address1" formControlName="address1" required mdInput placeholder="Address Line 1" value="">
                             </md-input-container>
-                            <div *ngIf="formErrors.address1">
+                            <div *ngIf="addressFormErrors.address1">
                                 <span class="help-block">
-                                    {{ formErrors.address1 }}
+                                    {{ addressFormErrors.address1 }}
                                 </span>
                             </div>
                         </div>
@@ -115,9 +115,9 @@
                             <md-input-container>
                                 <input name="address2" formControlName="address2" required mdInput placeholder="Address Line 2" value="">
                             </md-input-container>
-                            <div *ngIf="formErrors.address2">
+                            <div *ngIf="addressFormErrors.address2">
                                 <span class="help-block">
-                                    {{ formErrors.address2 }}
+                                    {{ addressFormErrors.address2 }}
                                 </span>
                             </div>
                         </div>
@@ -127,9 +127,9 @@
                             <md-input-container>
                                 <input name="city" formControlName="city" required mdInput placeholder="City" value="">
                             </md-input-container>
-                            <div *ngIf="formErrors.city">
+                            <div *ngIf="addressFormErrors.city">
                                 <span class="help-block">
-                                    {{ formErrors.city }}
+                                    {{ addressFormErrors.city }}
                                 </span>
                             </div>
                         </div>
@@ -137,9 +137,9 @@
                             <md-input-container>
                                 <input name="state" formControlName="state" required mdInput placeholder="State" value="">
                             </md-input-container>
-                            <div *ngIf="formErrors.state">
+                            <div *ngIf="addressFormErrors.state">
                                 <span class="help-block">
-                                    {{ formErrors.state }}
+                                    {{ addressFormErrors.state }}
                                 </span>
                             </div>
                         </div>
@@ -149,9 +149,9 @@
                             <md-input-container>
                                 <input name="pin" formControlName="pin" required mdInput placeholder="Pincode" value="">
                             </md-input-container>
-                            <div *ngIf="formErrors.pin">
+                            <div *ngIf="addressFormErrors.pin">
                                 <span class="help-block">
-                                    {{ formErrors.pin }}
+                                    {{ addressFormErrors.pin }}
                                 </span>
                             </div>
                         </div>
@@ -159,16 +159,16 @@
                             <md-input-container>
                                 <input name="country" formControlName="country" required mdInput placeholder="Country" value="">
                             </md-input-container>
-                            <div *ngIf="formErrors.country">
+                            <div *ngIf="addressFormErrors.country">
                                 <span class="help-block">
-                                    {{ formErrors.country }}
+                                    {{ addressFormErrors.country }}
                                 </span>
                             </div>
                         </div>
                     </div>
                 </form>
             </md-tab>
-            <md-tab [disabled]="!isAddressFormCompleted()">
+            <md-tab [disabled]="!addressFormCompleted">
                 <ng-template md-tab-label>
                     <md-icon>contacts</md-icon>&nbsp;&nbsp;Your Contact
                 </ng-template>
