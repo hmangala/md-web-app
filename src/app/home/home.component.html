@@ -68,51 +68,107 @@
                     </div>
                 </form>
             </md-tab>
-            <md-tab [disabled]="!isNextEnabled()">
+            <md-tab [disabled]="!isAccountFormCompleted()">
                 <ng-template md-tab-label>
                     <md-icon>local_post_office</md-icon>&nbsp;&nbsp;Your Address
                 </ng-template>
                 <h2>Address Details</h2>
-                <form (ngSubmit)="processAdress()" [formGroup]="addressForm">
-                    <div>
-                        <md-input-container>
-                            <input name="firstname" required="" mdInput placeholder="First Name" value="">
-                        </md-input-container>
+                <form class="container-fluid" (ngSubmit)="processAdress()" [formGroup]="addressForm">
+                    <div class="row">
+                        <div class="col-4">
+                            <md-input-container>
+                                <input name="firstname" formControlName="firstname" required mdInput placeholder="First Name" value="">
+                            </md-input-container>
+                            <div *ngIf="formErrors.firstname">
+                                <span class="help-block">
+                                    {{ formErrors.firstname }}
+                                </span>
+                            </div>
+                        </div>
                     </div>
-                    <div>
-                        <md-input-container>
-                            <input name="lastname" required="" mdInput placeholder="Last Name" value="">
-                        </md-input-container>
+                    <div class="row">
+                        <div class="col-4">
+                            <md-input-container>
+                                <input name="lastname" formControlName="lastname" required mdInput placeholder="Last Name" value="">
+                            </md-input-container>
+                            <div *ngIf="formErrors.lastname">
+                                <span class="help-block">
+                                    {{ formErrors.lastname }}
+                                </span>
+                            </div>
+                        </div>
                     </div>
-                    <div>
-                        <md-input-container>
-                            <input name="address1" required="" mdInput placeholder="Address Line 1" value="">
-                        </md-input-container>
+                    <div class="row">
+                        <div class="col-4">
+                            <md-input-container>
+                                <input name="address1" formControlName="address1" required mdInput placeholder="Address Line 1" value="">
+                            </md-input-container>
+                            <div *ngIf="formErrors.address1">
+                                <span class="help-block">
+                                    {{ formErrors.address1 }}
+                                </span>
+                            </div>
+                        </div>
                     </div>
-                    <div>
-                        <md-input-container>
-                            <input name="address2" required="" mdInput placeholder="Address Line 1" value="">
-                        </md-input-container>
+                    <div class="row">
+                        <div class="col-4">
+                            <md-input-container>
+                                <input name="address2" formControlName="address2" required mdInput placeholder="Address Line 2" value="">
+                            </md-input-container>
+                            <div *ngIf="formErrors.address2">
+                                <span class="help-block">
+                                    {{ formErrors.address2 }}
+                                </span>
+                            </div>
+                        </div>
                     </div>
-                    <div>
-                        <md-input-container>
-                            <input name="city" required="" mdInput placeholder="City" value="">
-                        </md-input-container>
-                        <md-input-container>
-                            <input name="state" required="" mdInput placeholder="State" value="">
-                        </md-input-container>
+                    <div class="row">
+                        <div class="col-4">
+                            <md-input-container>
+                                <input name="city" formControlName="city" required mdInput placeholder="City" value="">
+                            </md-input-container>
+                            <div *ngIf="formErrors.city">
+                                <span class="help-block">
+                                    {{ formErrors.city }}
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <md-input-container>
+                                <input name="state" formControlName="state" required mdInput placeholder="State" value="">
+                            </md-input-container>
+                            <div *ngIf="formErrors.state">
+                                <span class="help-block">
+                                    {{ formErrors.state }}
+                                </span>
+                            </div>
+                        </div>
                     </div>
-                    <div>
-                        <md-input-container>
-                            <input name="pin" required="" mdInput placeholder="Pincode" value="">
-                        </md-input-container>
-                        <md-input-container>
-                            <input name="country" required="" mdInput placeholder="Country" value="">
-                        </md-input-container>
+                    <div class="row">
+                        <div class="col-4">
+                            <md-input-container>
+                                <input name="pin" formControlName="pin" required mdInput placeholder="Pincode" value="">
+                            </md-input-container>
+                            <div *ngIf="formErrors.pin">
+                                <span class="help-block">
+                                    {{ formErrors.pin }}
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <md-input-container>
+                                <input name="country" formControlName="country" required mdInput placeholder="Country" value="">
+                            </md-input-container>
+                            <div *ngIf="formErrors.country">
+                                <span class="help-block">
+                                    {{ formErrors.country }}
+                                </span>
+                            </div>
+                        </div>
                     </div>
                 </form>
             </md-tab>
-            <md-tab>
+            <md-tab [disabled]="!isAddressFormCompleted()">
                 <ng-template md-tab-label>
                     <md-icon>contacts</md-icon>&nbsp;&nbsp;Your Contact
                 </ng-template>
@@ -146,7 +202,7 @@
         </md-tab-group>
     </md-card-content>
     <md-card-actions>
-        <button md-button><md-icon>left</md-icon></button>
+        <button md-button [disabled]="!isPreviousEnabled()"><md-icon>keyboard_arrow_left</md-icon></button>
         <button md-button [disabled]="!isNextEnabled()"><md-icon>keyboard_arrow_right</md-icon></button>
     </md-card-actions>
 </md-card>
