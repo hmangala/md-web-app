@@ -13,7 +13,7 @@
         </md-progress-bar>
     </md-toolbar>
     <md-card-content>
-        <md-tab-group>
+        <md-tab-group [selectedIndex]="selectedTab" (selectChange)="onTabChange($event)">
             <md-tab>
                 <ng-template md-tab-label>
                     <md-icon>account_circle</md-icon>&nbsp;&nbsp;Account
@@ -47,7 +47,8 @@
                     <div class="row">
                         <div class="col-4">
                             <md-input-container>
-                                <input type="password" name="passw" formControlName="passw" required mdInput placeholder="Password" value="">
+                                <input type="password" name="passw" formControlName="passw" required 
+                                mdInput placeholder="Password" value="" [formGroup]="accountForm">
                             </md-input-container>
                             <div *ngIf="accountFormErrors.passw">
                                 <span class="help-block">
@@ -57,7 +58,8 @@
                         </div>
                         <div class="col-4">
                             <md-input-container>
-                                <input type="password" name="confirmpassw" formControlName="confirmpassw" required mdInput placeholder="Confirm Password" value="">
+                                <input type="password" name="confirmpassw" formControlName="confirmpassw"
+                                    required mdInput placeholder="Confirm Password" value="" [formGroup]="accountForm">
                             </md-input-container>
                             <div *ngIf="accountFormErrors.confirmpassw">
                                 <span class="help-block">
@@ -147,7 +149,7 @@
                     <div class="row">
                         <div class="col-4">
                             <md-input-container>
-                                <input name="pin" formControlName="pin" required mdInput placeholder="Pincode" value="">
+                                <input name="pin" type="text" formControlName="pin" required mdInput placeholder="Pincode" value="">
                             </md-input-container>
                             <div *ngIf="addressFormErrors.pin">
                                 <span class="help-block">
@@ -168,30 +170,51 @@
                     </div>
                 </form>
             </md-tab>
-            <md-tab [disabled]="!addressFormCompleted">
+            <md-tab [disabled]="!(accountFormCompleted && addressFormCompelted)">
                 <ng-template md-tab-label>
                     <md-icon>contacts</md-icon>&nbsp;&nbsp;Your Contact
                 </ng-template>
                 <h2>Contact Details</h2>
                 <form (ngSubmit)="processContact()" [formGroup]="contactForm">
-                    <div>
-                        <md-input-container>
-                            <input name="mobile" required="" mdInput placeholder="Mobile Number" value="">
-                        </md-input-container>
+                    <div class="row">
+                        <div class="col-4">
+                            <md-input-container>
+                                <input name="mobile" formControlName="mobile" required mdInput placeholder="Mobile Number" value="">
+                            </md-input-container>
+                        </div>
+                        <div *ngIf="contactFormErrors.mobile">
+                            <span class="help-block">
+                                {{ contactFormErrors.mobile }}
+                            </span>
+                        </div>
                     </div>
-                    <div>
-                        <md-input-container>
-                            <input name="phone" mdInput placeholder="Phone (Optional)" value="">
-                        </md-input-container>
+                    <div class="row">
+                        <div class="col-4">
+                            <md-input-container>
+                                <input name="phone" formControlName="phone" mdInput placeholder="Phone- Optional" value="">
+                            </md-input-container>
+                        </div>
+                        <div *ngIf="contactFormErrors.phone">
+                            <span class="help-block">
+                                {{ contactFormErrors.phone }}
+                            </span>
+                        </div>
                     </div>
-                    <div>
-                        <md-input-container>
-                            <input name="secondaryemail" mdInput placeholder="Secondary Email (Optional)" value="">
-                        </md-input-container>
+                    <div class="row">
+                        <div class="col-4">
+                            <md-input-container>
+                                <input name="secondaryemail" formControlName="secondaryemail"  mdInput placeholder="Secondary Email - Optional" value="">
+                            </md-input-container>
+                        </div>
+                        <div *ngIf="contactFormErrors.secondaryemail">
+                            <span class="help-block">
+                                {{ contactFormErrors.secondaryemail }}
+                            </span>
+                        </div>
                     </div>
                 </form>
             </md-tab>
-            <md-tab>
+            <md-tab  [disabled]="!(accountFormCompleted && addressFormCompelted && contactFormCompleted)">
                 <ng-template md-tab-label>
                     <md-icon>done_all</md-icon>&nbsp;&nbsp;Confirmation
                 </ng-template>
@@ -202,7 +225,7 @@
         </md-tab-group>
     </md-card-content>
     <md-card-actions>
-        <button md-button [disabled]="!isPreviousEnabled()"><md-icon>keyboard_arrow_left</md-icon></button>
-        <button md-button [disabled]="!isNextEnabled()"><md-icon>keyboard_arrow_right</md-icon></button>
+        <button md-raised-button [disabled]="!isPreviousEnabled()" (click)="prevTab()"><md-icon>keyboard_arrow_left</md-icon>Prev</button>
+        <button md-raised-button [disabled]="!isNextEnabled()" (click)="nextTab()">Next<md-icon>keyboard_arrow_right</md-icon></button>
     </md-card-actions>
 </md-card>
