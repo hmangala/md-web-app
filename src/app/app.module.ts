@@ -10,10 +10,11 @@ import { AppMaterialModule } from './app-md.module';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeModule } from './home/home.module';
 import { AppComponent } from './app.component';
+import { SplashComponent } from './shared/splash.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent, SplashComponent
   ],
   imports: [
     BrowserModule,
