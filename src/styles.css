@@ -1,8 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import '~@angular/material/prebuilt-themes/pink-bluegrey.css';
-@import '~splash-screen/dist/splash-screen-tailing.min.css';
 
+/* @import '~@angular/material/prebuilt-themes/pink-bluegrey.css'; */
+
+@import './assets/custom-theme.css';
+@import '~splash-screen/dist/splash-screen-tailing.min.css';
 .spacer {
     -webkit-box-flex: 1;
     -ms-flex: 1 1 auto;
