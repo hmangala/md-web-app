@@ -6,10 +6,12 @@ import { APP_BASE_HREF } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+
 import { AppMaterialModule } from './app-md.module';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeModule } from './home/home.module';
 import { LoginModule } from './login/login.module';
+import { RegisterModule } from './register/register.module';
 import { AppComponent } from './app.component';
 import { SplashComponent } from './shared/util/splash.component';
 
@@ -27,7 +29,8 @@ import { SplashComponent } from './shared/util/splash.component';
     AppRoutingModule,
     ReactiveFormsModule,
     HomeModule,
-    LoginModule
+    LoginModule,
+    RegisterModule
   ],
   providers: [{
     provide: APP_BASE_HREF,

@@ -6,18 +6,18 @@
       <md-icon>apps</md-icon>
     </button>
     <md-menu #menu="mdMenu">
-        <a routerLink="/home" md-menu-item>
+        <a routerLink="/register" md-menu-item>
             <md-icon>add</md-icon>
             <span>Register</span>
         </a>
         <a routerLink="/login" md-menu-item>
           <md-icon>fingerprint</md-icon>
           <span>Login</span>
-      </a>
-        <button md-menu-item disabled>
+        </a>
+        <a routerLink="/home" md-menu-item>
             <md-icon>notifications_off</md-icon>
             <span>Disable alerts</span>
-        </button>
+        </a>
     </md-menu>
 </md-toolbar>
 <app-splash></app-splash>
