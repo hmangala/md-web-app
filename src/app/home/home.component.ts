@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormArray, Validators } from '@angular/forms';
-import { PasswordValidation } from './passw-validation.component';
+import { PasswordValidation } from '../shared/validation/passw-validator';
 
 
 /**

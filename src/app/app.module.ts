@@ -10,7 +10,7 @@ import { AppMaterialModule } from './app-md.module';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeModule } from './home/home.module';
 import { AppComponent } from './app.component';
-import { SplashComponent } from './shared/splash.component';
+import { SplashComponent } from './shared/util/splash.component';
 
 @NgModule({
   declarations: [

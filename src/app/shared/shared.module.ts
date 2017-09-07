@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { EmailValidatorDirective } from './email-validator.component';
+import { EmailValidatorDirective } from './validation/email-validator';
 
 
 @NgModule({
