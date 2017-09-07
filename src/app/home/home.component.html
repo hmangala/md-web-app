@@ -47,7 +47,7 @@
                     <div class="row">
                         <div class="col-4">
                             <md-input-container>
-                                <input type="password" name="passw" formControlName="passw" required 
+                                <input type="password" name="passw" formControlName="passw" required
                                 mdInput placeholder="Password" value="" [formGroup]="accountForm">
                             </md-input-container>
                             <div *ngIf="accountFormErrors.passw">
@@ -75,7 +75,7 @@
                     <md-icon>local_post_office</md-icon>&nbsp;&nbsp;Your Address
                 </ng-template>
                 <h2>Address Details</h2>
-                <form class="container-fluid" (ngSubmit)="processAdress()" [formGroup]="addressForm">
+                <form class="container-fluid" (ngSubmit)="processAddress()" [formGroup]="addressForm">
                     <div class="row">
                         <div class="col-4">
                             <md-input-container>
@@ -170,7 +170,7 @@
                     </div>
                 </form>
             </md-tab>
-            <md-tab [disabled]="!(accountFormCompleted && addressFormCompelted)">
+            <md-tab [disabled]="!(accountFormCompleted && addressFormCompleted)">
                 <ng-template md-tab-label>
                     <md-icon>contacts</md-icon>&nbsp;&nbsp;Your Contact
                 </ng-template>
@@ -214,12 +214,13 @@
                     </div>
                 </form>
             </md-tab>
-            <md-tab  [disabled]="!(accountFormCompleted && addressFormCompelted && contactFormCompleted)">
+            <md-tab  [disabled]="!(accountFormCompleted && addressFormCompleted && contactFormCompleted)">
                 <ng-template md-tab-label>
                     <md-icon>done_all</md-icon>&nbsp;&nbsp;Confirmation
                 </ng-template>
                 <div>
-                    <p>You have successfully Completed the registration kindly login</p>
+                    <button (click)="processForm()" md-raised-button > Register </button>
+                    <!-- <p>You have successfully Completed the registration kindly login</p> -->
                 </div>
             </md-tab>
         </md-tab-group>

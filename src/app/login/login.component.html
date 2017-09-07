@@ -1,0 +1,35 @@
+<md-card>
+  <md-card-content>
+    <form class="container-fluid" (ngSubmit)="login()" [formGroup]="loginForm">
+      <div class="row">
+        <div class="col-4">
+          <md-input-container>
+            <input name="username" formControlName="username" required mdInput placeholder="Username" [(ngModel)]="loginModel.username">
+          </md-input-container>
+          <div>
+            <span class="help-block" *ngIf="loginFormErrors.username">
+                  {{ loginFormErrors.username }}
+              </span>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-4">
+          <md-input-container>
+            <input type="password" name="passw" formControlName="passw" required mdInput placeholder="Password" [(ngModel)]="loginModel.password">
+          </md-input-container>
+          <div>
+            <span class="help-block" *ngIf="loginFormErrors.passw">
+                  {{ loginFormErrors.passw }}
+        </span>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="successMessage" class="alert alert-success">{{successMessage}}</div>
+      <div *ngIf="errorMessage" class="alert alert-danger">{{errorMessage}}</div>
+      <div class="form-group">
+        <button [disabled]="!loginForm.valid" type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </form>
+  </md-card-content>
+</md-card>

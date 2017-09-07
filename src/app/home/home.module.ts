@@ -5,8 +5,8 @@ import { HomeComponent } from './home.component';
 import { HomeRoutingModule } from './home-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppMaterialModule } from '../app-md.module';
-import { SharedModule } from '../shared/shared.module';
-
+import { AuthService } from '../shared/services/auth.service';
+import { NotFoundComponent } from '../shared/index';
 
 @NgModule({
   imports: [HomeRoutingModule,
@@ -14,9 +14,15 @@ import { SharedModule } from '../shared/shared.module';
     BrowserModule,
     CommonModule,
     FormsModule,
-    ReactiveFormsModule,
-    SharedModule],
-  declarations: [HomeComponent],
-  exports: [HomeComponent]
+    ReactiveFormsModule
+    ],
+  declarations: [
+    HomeComponent,
+    NotFoundComponent
+  ],
+  exports: [HomeComponent],
+  providers: [
+    AuthService
+  ]
 })
 export class HomeModule { }

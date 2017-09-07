@@ -111,20 +111,20 @@ export class HomeComponent implements OnInit {
     }
   };
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder) { }
 
   ngOnInit() {
-     // build the data model for our form
-     this.accountFormCompleted = false;
-     this.addressFormCompleted = false;
-     this.contactFormCompleted = false;
-     this.selectedTab = 0;
-     this.buildForms();
+    // build the data model for our form
+    this.accountFormCompleted = false;
+    this.addressFormCompleted = false;
+    this.contactFormCompleted = false;
+    this.selectedTab = 0;
+    this.buildForms();
   }
 
-   /**
-   * build the initial form
-   */
+  /**
+  * build the initial form
+  */
   buildForms() {
     // build our form
     this.accountForm = this.fb.group({
@@ -133,8 +133,8 @@ export class HomeComponent implements OnInit {
       passw: ['', [Validators.minLength(8), Validators.maxLength(15)]],
       confirmpassw: ['', [Validators.minLength(8), Validators.maxLength(15)]]
     }, {
-      validator: PasswordValidation.MatchPassword // your validation method
-    });
+        validator: PasswordValidation.MatchPassword // your validation method
+      });
     this.addressForm = this.fb.group({
       firstname: ['', Validators.minLength(3)],
       lastname: ['', Validators.minLength(3)],
@@ -147,8 +147,8 @@ export class HomeComponent implements OnInit {
     });
     this.contactForm = this.fb.group({
       mobile: ['', [Validators.pattern('^(0|[1-9][0-9]*)$'), Validators.minLength(10), Validators.maxLength(10)]],
-      phone: [[Validators.pattern('^(0|[1-9][0-9]*)$'), Validators.minLength(10), Validators.maxLength(10)]],
-      secondaryemail: [Validators.email]
+      phone: ['', [Validators.pattern('^(0|[1-9][0-9]*)$'), Validators.minLength(10), Validators.maxLength(10)]],
+      secondaryemail: ['', Validators.email]
     });
     // watch for changes and validate
     this.accountForm.valueChanges.subscribe(data => this.validateForm(this.accountForm, this.accountFormErrors));
@@ -261,5 +261,9 @@ export class HomeComponent implements OnInit {
   onTabChange = ($event: any): void => {
     this.selectedTab = $event.index;
   }
-
+  processForm() {
+    console.log('processing account', this.accountForm.value);
+    console.log('processing contact', this.contactForm.value);
+    console.log('processing address', this.addressForm.value);
+  }
 }
