@@ -11,6 +11,7 @@ import { FacebookService, LoginResponse, LoginOptions, UIResponse, UIParams } fr
   styleUrls: ['home.component.css'],
 })
 export class HomeComponent implements OnInit {
+  logintrue: boolean;
   constructor( private fb: FacebookService) {
     console.log('Initializing Facebook');
     fb.init({
@@ -20,7 +21,7 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-
+    this.logintrue = false;
   }
 
   login() {
@@ -33,6 +34,7 @@ export class HomeComponent implements OnInit {
     this.fb.login(loginOptions)
       .then((res: LoginResponse) => {
         console.log('Logged in', res);
+        this.logintrue = true;
       })
       .catch(this.handleError);
   }
